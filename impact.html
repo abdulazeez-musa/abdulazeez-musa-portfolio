@@ -1,121 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impact Portfolio — Abdulazeez Musa</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  }
 
-<nav class="site-nav">
-  <div class="wrap">
-    <a href="index.html" class="brand">Abdulazeez <span>Musa</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="impact.html" class="active">Impact Portfolio</a></li>
-      <li><a href="projects.html">Projects &amp; Initiatives</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-  </div>
-</nav>
+  const yearEl = document.querySelector('[data-year]');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-<header class="page-header">
-  <div class="wrap">
-    <span class="eyebrow" style="color:#D9B871;">Impact Portfolio</span>
-    <h1>Results I can point to, not just roles I've held.</h1>
-    <p class="lede">A record of what programmes I've led actually changed — for the people in them and the systems around them.</p>
-  </div>
-</header>
+  // Contact form: no backend yet, so open a pre-filled email instead of failing silently.
+  const form = document.querySelector('#contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const subject = encodeURIComponent(`Portfolio inquiry from ${name || 'website visitor'}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:abdulazeezmusa000@gmail.com?subject=${subject}&body=${body}`;
+    });
+  }
 
-<section>
-  <div class="wrap stack">
-
-    <article class="achv-card">
-      <div class="stat">$90,000 <small>Embassy funding</small></div>
-      <div>
-        <h3>WAVES — Women Against Violence, Empowered through Sustainability</h3>
-        <p>Designed and oversaw this initiative, securing over $90,000 from the Canadian and French embassies to move 600+ young women in high-risk communities through agribusiness, financial literacy and climate-smart livelihood training.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">Adopted <small>by state government</small></div>
-      <div>
-        <h3>Gender-Responsive Education Budgeting Framework, Kano State</h3>
-        <p>Directed the research and advocacy behind Kano State's first Gender-Responsive Education Budgeting Framework — formally adopted by the state government to guide allocation of education resources toward girls and vulnerable learners.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">Passed <small>into law</small></div>
-      <div>
-        <h3>Kano State Child Protection Law</h3>
-        <p>Facilitated cross-sector dialogue among civil society, policymakers and international partners that contributed to the passage of Kano State's Child Protection Law.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">39,000+ <small>young people</small></div>
-      <div>
-        <h3>Young Africa Works — Mastercard Foundation</h3>
-        <p>Localised a youth employability strategy under the Young Africa Works initiative, strengthening job-readiness for over 39,000 young people across Kano State.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">4,000+ <small>proposals reviewed</small></div>
-      <div>
-        <h3>EU Youth Empowerment Fund — Global Review Panel</h3>
-        <p>As Senior Youth Panelist, evaluated over 4,000 youth-led project applications globally against scalability, sustainability and community-relevance criteria, and delivered structured feedback on 75+ shortlisted proposals shaping €10 million in resource allocation.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">3.7M <small>jobs targeted</small></div>
-      <div>
-        <h3>Nigeria Youth Employment Action Plan Framework</h3>
-        <p>Contributed to a national policy effort targeting 3.7 million jobs for young Nigerians, and co-authored five policy briefs on women's empowerment, youth leadership and education.</p>
-      </div>
-    </article>
-
-    <article class="achv-card">
-      <div class="stat">1,500+ <small>youth connected</small></div>
-      <div>
-        <h3>YouthXcel Africa Ecosystem</h3>
-        <p>Founded and lead a youth empowerment ecosystem connecting young people to purpose discovery, practical skill-building and income opportunities across underserved communities in Nigeria.</p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section style="background:var(--sand); padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Awards &amp; Recognition</span>
-      <h2>External validation of the work</h2>
-    </div>
-    <div>
-      <div class="award-item"><span>Youth in Leadership Feature — Daily Trust Newspaper, Youth Ville</span><span class="yr">2023</span></div>
-      <div class="award-item"><span>Civic Changemaker — TransparencIT (one of 20 Young Civic Changemakers in Nigeria)</span><span class="yr">2023</span></div>
-      <div class="award-item"><span>Micro-grant Award for Youth Leaders — CITAD &amp; MacArthur Foundation</span><span class="yr">2020</span></div>
-      <div class="award-item"><span>Best Undergraduate Research Project — Faculty of Communication, Bayero University Kano</span><span class="yr">2019</span></div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <span>© <span data-year></span> Abdulazeez Musa. Kano, Nigeria.</span>
-    <span><a href="mailto:abdulazeezmusa000@gmail.com">abdulazeezmusa000@gmail.com</a></span>
-  </div>
-</footer>
-
-<script src="js/script.js"></script>
-</body>
-</html>
+  // Blog: load posts from data/posts.json if present on this page.
+  const postList = document.querySelector('#post-list');
+  if (postList) {
+    fetch('data/posts.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const posts = data.posts || [];
+        if (posts.length === 0) {
+          postList.innerHTML = '<div class="empty-note">No posts published yet. New articles will appear here.</div>';
+          return;
+        }
+        postList.innerHTML = posts
+          .slice()
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map(
+            (p) => `
+          <article class="post-item">
+            <span class="date">${p.date}</span>
+            <div>
+              <h3>${p.title}</h3>
+              <p>${p.excerpt}</p>
+            </div>
+          </article>`
+          )
+          .join('');
+      })
+      .catch(() => {
+        postList.innerHTML = '<div class="empty-note">Posts will appear here once the site is deployed online (this loader needs a live server, not a local file preview).</div>';
+      });
+  }
+});

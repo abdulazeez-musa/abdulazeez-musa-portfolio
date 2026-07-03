@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: abdulazeez-musa/abdulazeez-musa-portfolio
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    files:
+      - name: "posts"
+        label: "All Blog Posts"
+        file: "data/posts.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
