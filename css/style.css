@@ -269,7 +269,46 @@ footer a{color:#C9D1E0;}
   font-family:var(--mono); font-size:0.85rem; color:#6B7484;
 }
 
-/* ---------- AWARDS LIST ---------- */
+/* ---------- PROJECT CARD MEDIA ---------- */
+.proj-card-media{
+  aspect-ratio:16/10; background:var(--sand); border:1px solid var(--line);
+  margin-bottom:16px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.proj-card-media img{width:100%; height:100%; object-fit:cover;}
+.proj-card-media span{font-family:var(--mono); font-size:0.68rem; color:#8A8060; text-align:center; padding:8px;}
+
+/* ---------- AFFILIATION LOGOS ---------- */
+.affil-grid{display:flex; flex-wrap:wrap; gap:26px 30px;}
+.affil-logo{width:150px; text-align:center;}
+.affil-logo .logo-box{
+  width:64px; height:64px; margin:0 auto 10px; border-radius:50%;
+  background:var(--sand-lt); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.affil-logo .logo-box img{width:100%; height:100%; object-fit:cover;}
+.affil-logo .logo-box span{font-family:var(--mono); font-size:0.5rem; color:#8A8060; line-height:1.2;}
+.affil-logo .name{font-family:var(--mono); font-size:0.76rem; color:var(--ink); opacity:0.85;}
+
+/* ---------- CLICKABLE BLOG POSTS ---------- */
+.post-item-link{display:block; text-decoration:none; color:inherit;}
+.post-item{transition:background 0.15s ease;}
+.post-item-link:hover .post-item{background:var(--sand);}
+.post-item{grid-template-columns:120px 90px 1fr;}
+.post-thumb{width:90px; height:70px; background:var(--sand); border:1px solid var(--line); overflow:hidden; display:flex; align-items:center; justify-content:center;}
+.post-thumb img{width:100%; height:100%; object-fit:cover;}
+.post-thumb span{font-family:var(--mono); font-size:0.55rem; color:#8A8060;}
+@media (max-width:600px){.post-item{grid-template-columns:1fr;} .post-thumb{width:100%; height:130px; margin:6px 0;}}
+
+/* ---------- SINGLE ARTICLE PAGE ---------- */
+.article-media{
+  aspect-ratio:16/9; background:var(--sand); border:1px solid var(--line);
+  margin-bottom:32px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.article-media img{width:100%; height:100%; object-fit:cover;}
+.article-media span{font-family:var(--mono); font-size:0.75rem; color:#8A8060;}
+.article-body p{margin-bottom:18px; font-size:1rem; max-width:70ch;}
+.back-link{font-family:var(--mono); font-size:0.82rem; color:var(--gold); display:inline-block; margin-bottom:26px;}
+
 .award-item{padding:20px 0; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;}
 .award-item .yr{font-family:var(--mono); color:var(--gold); font-size:0.85rem;}
 

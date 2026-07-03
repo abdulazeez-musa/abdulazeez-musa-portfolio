@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: abdulazeez-musa/abdulazeez-musa-portfolio
   branch: main
 
 media_folder: "images"
@@ -21,3 +22,5 @@ collections:
               - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Cover Image", name: "image", widget: "image", required: false }
+              - { label: "Full Article", name: "body", widget: "text", required: false, hint: "Write the full article. Leave a blank line between paragraphs." }
