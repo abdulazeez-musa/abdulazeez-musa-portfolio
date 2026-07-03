@@ -7,6 +7,43 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  - name: "site_photos"
+    label: "Site Photos"
+    files:
+      - name: "photos"
+        label: "All Site Photos"
+        file: "data/site-images.json"
+        fields:
+          - { label: "Home Page — Portrait", name: "home_portrait", widget: "image", required: false }
+          - { label: "About Page — Portrait", name: "about_portrait", widget: "image", required: false }
+          - { label: "Gallery — Photo 1", name: "gallery_1", widget: "image", required: false }
+          - { label: "Gallery — Photo 2", name: "gallery_2", widget: "image", required: false }
+          - { label: "Gallery — Photo 3", name: "gallery_3", widget: "image", required: false }
+          - { label: "Gallery — Photo 4", name: "gallery_4", widget: "image", required: false }
+          - { label: "Gallery — Photo 5", name: "gallery_5", widget: "image", required: false }
+          - { label: "Gallery — Photo 6", name: "gallery_6", widget: "image", required: false }
+          - { label: "Project — YouthXcel Africa", name: "project_1", widget: "image", required: false }
+          - { label: "Project — Bridge Connect Africa Initiative", name: "project_2", widget: "image", required: false }
+          - { label: "Project — WAVES", name: "project_3", widget: "image", required: false }
+          - { label: "Project — BAGE (Girls' Education)", name: "project_4", widget: "image", required: false }
+          - { label: "Project — YLCP (Youth Leading Change)", name: "project_5", widget: "image", required: false }
+          - { label: "Project — BIIP (Internship Programme)", name: "project_6", widget: "image", required: false }
+          - { label: "Project — WeCan Africa Development", name: "project_7", widget: "image", required: false }
+          - { label: "Project — Jobberman Training", name: "project_8", widget: "image", required: false }
+          - { label: "Project — EU Youth Empowerment Panel", name: "project_9", widget: "image", required: false }
+          - { label: "Project — UNICEF U-report", name: "project_10", widget: "image", required: false }
+          - { label: "Partner Logo — Jobberman / Mastercard YAW", name: "partner_1", widget: "image", required: false }
+          - { label: "Partner Logo — Malala Fund", name: "partner_2", widget: "image", required: false }
+          - { label: "Partner Logo — Embassy of Canada", name: "partner_3", widget: "image", required: false }
+          - { label: "Partner Logo — Embassy of France", name: "partner_4", widget: "image", required: false }
+          - { label: "Partner Logo — U.S. Embassy", name: "partner_5", widget: "image", required: false }
+          - { label: "Partner Logo — UNICEF", name: "partner_6", widget: "image", required: false }
+          - { label: "Partner Logo — BBC Media Action", name: "partner_7", widget: "image", required: false }
+          - { label: "Partner Logo — WaterAid", name: "partner_8", widget: "image", required: false }
+          - { label: "Partner Logo — ONE Campaign", name: "partner_9", widget: "image", required: false }
+          - { label: "Partner Logo — EU Youth Empowerment Fund", name: "partner_10", widget: "image", required: false }
+          - { label: "Partner Logo — Nigeria Youth Futures Fund", name: "partner_11", widget: "image", required: false }
+
   - name: "blog"
     label: "Blog Posts"
     files:

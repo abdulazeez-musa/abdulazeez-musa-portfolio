@@ -23,7 +23,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Blog list: load posts from data/posts.json if present on this page.
+  // Site Photos: any element with data-photo="key" gets its image from data/site-images.json
+  const photoTargets = document.querySelectorAll('[data-photo]');
+  if (photoTargets.length > 0) {
+    fetch('data/site-images.json')
+      .then((res) => res.json())
+      .then((data) => {
+        photoTargets.forEach((el) => {
+          const key = el.getAttribute('data-photo');
+          const url = data[key];
+          if (!url) return;
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = '';
+          const placeholder = el.querySelector('span');
+          if (placeholder) {
+            placeholder.replaceWith(img);
+          } else {
+            el.prepend(img);
+          }
+        });
+      })
+      .catch(() => {});
+  }
   const postList = document.querySelector('#post-list');
   if (postList) {
     fetch('data/posts.json')
@@ -84,8 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
           : `<div class="article-media"><span>No cover image added yet</span></div>`;
         const bodyText = post.body && post.body.trim() ? post.body : post.excerpt;
         articleBody.innerHTML = bodyText
-          .split(/\n\s*\n/)
-          .map((para) => `<p>${para.trim()}</p>`)
+          .split(/\n+/)
+          .map((para) => para.trim())
+          .filter((para) => para.length > 0)
+          .map((para) => `<p>${para}</p>`)
           .join('');
       })
       .catch(() => {
